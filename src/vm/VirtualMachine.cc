@@ -3684,6 +3684,7 @@ vector<string> VirtualMachine::get_hybrid_hypervisors() const
 
     // Compatibility with old templates
 
+    attrs.clear();
     user_obj_template->get("EC2", attrs);
 
     if (!attrs.empty())
