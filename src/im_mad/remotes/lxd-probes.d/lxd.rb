@@ -29,7 +29,7 @@ end
 ENV['LANG'] = 'C'
 ENV['LC_ALL'] = 'C'
 
-nodeinfo_text = `virsh -c qemu:///system nodeinfo`
+nodeinfo_text = `virsh -c #{ENV["LIBVIRT_URI"]} nodeinfo`
 exit(-1) if $?.exitstatus != 0
 
 nodeinfo_text.split(/\n/).each{|line|

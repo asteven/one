@@ -26,7 +26,7 @@ module VNMNetwork
       :iptables => "sudo iptables",
       :ip6tables=> "sudo ip6tables",
       :ip       => "sudo ip",
-      :virsh    => "virsh -c qemu:///system",
+      :virsh    => "virsh -c #{ENV["LIBVIRT_URI"]}",
       :ovs_vsctl=> "sudo ovs-vsctl",
       :ovs_ofctl=> "sudo ovs-ofctl",
       :lsmod    => "lsmod",

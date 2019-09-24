@@ -30,7 +30,7 @@ begin
     machines = []
     models   = []
 
-    cmd = 'virsh -r -c qemu:///system capabilities'
+    cmd = "virsh -r -c #{ENV["LIBVIRT_URI"]} capabilities"
     capabilities, e, s = Open3.capture3(cmd)
     exit(-1) unless s.success?
 
@@ -89,7 +89,7 @@ begin
             end
         }
 
-        cmd = "virsh -r -c qemu:///system cpu-models #{a}"
+        cmd = "virsh -r -c #{ENV["LIBVIRT_URI"]} cpu-models #{a}"
         cpu_models, e, s = Open3.capture3(cmd)
         break unless s.success?
 
